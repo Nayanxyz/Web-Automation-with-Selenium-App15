@@ -60,7 +60,17 @@ current_address_field.send_keys('indore')
 permanent_address_field.send_keys('indore')
 driver.execute_script("arguments[0].click();", submit_button)
 
+# Locate Download element
+download = WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.ID, 'item-7'))) # By.XPATH is also applicable
+download.click()
 
+# Download button
+download_file = WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.ID, 'downloadButton')))
+download_file.click()
+
+# { driver.execute_script } is used in selenium to prevent click ads
+# download_file = WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.ID, 'downloadButton')))
+# driver.execute_script("arguments[0].click();", download_file)
 
 
 input("press enter to close the browser")
