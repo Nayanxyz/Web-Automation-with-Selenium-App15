@@ -5,10 +5,16 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 import time
+import os
 
 # Define driver, options and service
 chrome_options = Options()
 chrome_options.add_argument("--disable-search-engine-choice-screen")
+
+download_path = os.getcwd() # cwd = current working directory
+prefs = {'download.default_directory': download_path}
+chrome_options.add_experimental_option('prefs', prefs)
+
 
 service = Service("chromedriver-win64/chromedriver.exe")
 driver = webdriver.Chrome(options=chrome_options,service=service)
@@ -73,5 +79,4 @@ download_file.click()
 # driver.execute_script("arguments[0].click();", download_file)
 
 
-input("press enter to close the browser")
 driver.quit()
