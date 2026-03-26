@@ -48,6 +48,22 @@ class App:
 
 
 
+    def submit_data(self):
+        username = self.entry_username.get()
+        password = self.entry_password.get()
+        full_name = self.entry_fullname.get()
+        email = self.entry_email.get()
+        current_address = self.entry_current_address.get()
+        permanent_address = self.entry_permanent_address.get()
+
+        self.web_automation = WebAutomation()
+        self.web_automation.login(username, password)
+        self.web_automation.fill_form(full_name, email, current_address, permanent_address)
+
+    def close_browser(self):
+        self.web_automation.close()
+        messagebox.showinfo("Browser Closed", "Submitted Successfully")
+
 
 
 root = tk.Tk()
