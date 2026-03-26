@@ -15,7 +15,22 @@ class App:
         tk.Label(self.login_frame, text="Password").grid(row=1, column=0, sticky="w")
         self.entry_username = tk.Entry(self.login_frame).grid(row=1, column=1, sticky="ew")
 
-        #
+        # Form submission frame
+        self.form_frame = tk.Frame(self.root)
+        self.form_frame.pack(padx=10, pady=10)
+
+        tk.Label(self.form_frame, text="Full Name").grid(row=0, column=0, sticky="w")
+        self.entry_fullname = tk.Entry(self.form_frame).grid(row=0, column=1, sticky="ew")
+
+        tk.Label(self.form_frame, text="Email").grid(row=1, column=0, sticky="w")
+        self.entry_email = tk.Entry(self.form_frame).grid(row=1, column=1, sticky="ew")
+
+        tk.Label(self.form_frame, text="Current Address").grid(row=2, column=0, sticky="w")
+        self.entry_current_address = tk.Entry(self.form_frame).grid(row=2, column=1, sticky="ew")
+
+        tk.Label(self.form_frame, text="Permanent Address").grid(row=3, column=0, sticky="w")
+        self.entry_permanent_address= tk.Entry(self.form_frame).grid(row=3, column=1, sticky="ew")
+
 
     def submit_data(self):
         pass
