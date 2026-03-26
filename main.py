@@ -23,7 +23,7 @@ login_button = driver.find_element(By.ID, 'login')
 
 # Fill in username and password , and click login button
 username_field.send_keys('Nayanxyz')
-password_field.send_keys('Nayanxyz@001')
+password_field.send_keys('Nayanxyz@111')
 driver.execute_script("arguments[0].click();", login_button)
 
 # Locate the elements breakdown and textbox
@@ -42,6 +42,12 @@ permanent_address_field = WebDriverWait(driver, 10).until(EC.visibility_of_eleme
 submit_button = driver.find_element(By.ID, 'submit')
 
 
+# load info in form
+fullname_field.send_keys('Nayan ')
+email_field.send_keys('nayan@gmail.com')
+current_address_field.send_keys('indore')
+permanent_address_field.send_keys('indore')
+driver.execute_script("arguments[0].click();", submit_button)
 
 input("press enter to close the browser")
 driver.quit()
