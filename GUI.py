@@ -1,4 +1,6 @@
 import tkinter as tk
+from tkinter import messagebox
+from main import WebAutomation
 
 class App:
     def __init__(self, root):
@@ -10,33 +12,41 @@ class App:
         self.login_frame.pack(padx=10, pady=10)
 
         tk.Label(self.login_frame, text="Username").grid(row=0, column=0, sticky="w")
-        self.entry_username = tk.Entry(self.login_frame).grid(row=0, column=1, sticky="ew")
+        self.entry_username = tk.Entry(self.login_frame)
+        self.entry_username.grid(row=0, column=1, sticky="ew")
 
         tk.Label(self.login_frame, text="Password").grid(row=1, column=0, sticky="w")
-        self.entry_username = tk.Entry(self.login_frame).grid(row=1, column=1, sticky="ew")
+        self.entry_password = tk.Entry(self.login_frame, show="*")
+        self.entry_password.grid(row=1, column=1, sticky="ew")
 
         # Form submission frame
         self.form_frame = tk.Frame(self.root)
         self.form_frame.pack(padx=10, pady=10)
 
         tk.Label(self.form_frame, text="Full Name").grid(row=0, column=0, sticky="w")
-        self.entry_fullname = tk.Entry(self.form_frame).grid(row=0, column=1, sticky="ew")
+        self.entry_fullname = tk.Entry(self.form_frame)
+        self.entry_fullname.grid(row=0, column=1, sticky="ew")
 
         tk.Label(self.form_frame, text="Email").grid(row=1, column=0, sticky="w")
-        self.entry_email = tk.Entry(self.form_frame).grid(row=1, column=1, sticky="ew")
+        self.entry_email = tk.Entry(self.form_frame)
+        self.entry_email.grid(row=1, column=1, sticky="ew")
 
         tk.Label(self.form_frame, text="Current Address").grid(row=2, column=0, sticky="w")
-        self.entry_current_address = tk.Entry(self.form_frame).grid(row=2, column=1, sticky="ew")
+        self.entry_current_address = tk.Entry(self.form_frame)
+        self.entry_current_address.grid(row=2, column=1, sticky="ew")
 
         tk.Label(self.form_frame, text="Permanent Address").grid(row=3, column=0, sticky="w")
-        self.entry_permanent_address= tk.Entry(self.form_frame).grid(row=3, column=1, sticky="ew")
+        self.entry_permanent_address = tk.Entry(self.form_frame)
+        self.entry_permanent_address.grid(row=3, column=1, sticky="ew")
+
+        # Buttons
+        self.button_frame = tk.Frame()
+        self.button_frame.pack(padx=10, pady=10)
+
+        tk.Button(self.button_frame, text="Submit", command=self.submit_data).grid(row=0, column=0, padx=5)
+        tk.Button(self.button_frame, text="Close Browser", command=self.close_browser).grid(row=0, column=1, padx=5)
 
 
-    def submit_data(self):
-        pass
-
-    def close_browser(self):
-        pass
 
 
 
