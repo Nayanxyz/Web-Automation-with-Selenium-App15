@@ -1,0 +1,57 @@
+1. The Visual Library (tkinter)
+Class: Tk
+    Definition: The main engine that creates the basic desktop window for
+                the application to live in.
+
+    Usage: Used to open an empty main canvas (window) and, at the end of
+            the script, to start a background engine that holds that window continuously
+            on the screen so it does not close immediately.
+
+Class: Frame
+    Definition: An invisible container or grouping box used to organize
+                other items neatly on the screen.
+
+    Usage: Used to keep the layout clean and divide it into logical sections.
+           Login boxes are grouped in one invisible frame and form boxes in another frame,
+           ensuring everything on the screen does not collapse on top of each other into a messy pile.
+
+Class: Label
+    Definition: A simple text tag that displays uneditable words on the screen.
+
+    Usage: Used to add headings and titles within the form. For example,
+             writing "Username" or "Email" right next to empty typing boxes, making it
+             instantly clear what specific data needs to be typed and exactly where.
+
+Class: Entry
+    Definition: A blank, single-line text box where a human can
+                 type information using a keyboard.
+
+    Usage: Placed specifically to collect user data. Once text is typed via the
+          keyboard, the backend script physically extracts that exact text from inside
+          this box. A specific setting is also used here to hide password characters,
+          turning them into solid dots for security.
+
+Class: Button
+    Definition: A clickable switch on the screen that triggers
+                 a specific action or command when pressed.
+
+    Usage: Placed at the very bottom of the form. When clicked with a mouse,
+             it acts as the trigger that starts the background engine, extracting the filled
+             data and sending it straight to the automated browser.
+
+2. The Alert Module (tkinter.messagebox)
+    Definition: A built-in tool designed specifically to show
+                small alert pop-ups or notification boxes on top of the main window.
+
+    Usage: Used to flash a small success popup on the screen only after
+            the entire automation process completely finishes, providing visual confirmation
+            that the data has been successfully submitted to the server.
+
+3. The Custom Engine (main.WebAutomation)
+    Definition: The custom-built robot engine that connects to the Google
+                Chrome browser and performs automated clicks and typing on the actual internet.
+
+    Usage: Kept completely separate from the frontend visual form. Once text is pulled
+            out of the GUI, the engine of this robot class is started in system memory. Then, that
+            extracted text is handed over to this robot so it can open the internet and execute
+            commands on the actual target website (DemoQA).
