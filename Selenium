@@ -1,0 +1,89 @@
+1. Operating System & Time Libraries (Standard Python)
+
+    Library: os
+        Definition: A built-in tool to interact with the computer's file system and folders.
+
+        Usage: Used via os.getcwd() to automatically figure out the exact folder path where
+                the script is currently running. This ensures downloaded files are saved exactly
+                in the project folder, rather than getting lost in the computer's default "Downloads" directory.
+
+    Library: time
+        Definition: A built-in tool to handle time-related tasks.
+
+        Usage: Used via time.sleep(1) to force the script to freeze and do absolutely nothing
+                for a specific number of seconds. This is a basic, rigid way to wait for webpage elements to process.
+
+2. Selenium Core Libraries (The Automation Engine)
+
+    Class: webdriver.Chrome
+        Definition: The main robot engine that physically opens and controls the Google Chrome browser.
+
+        Usage: Assigned to self.driver, it acts as the central command hub to open websites
+                (.get()) and execute automated actions on the internet.
+
+    Class: Service
+        Definition: A background manager that starts and stops the chromedriver.exe file.
+
+        Usage: Tells the script exactly where the driver executable is located on the hard
+                drive so the browser can launch successfully.
+
+    Class: Options
+        Definition: A configuration tool to change how the browser behaves before it even opens.
+
+        Usage: Used here for two critical tasks: blocking the annoying "search engine choice
+                screen" popup, and forcefully changing the browser's default download folder to the script's current directory.
+
+3. Selenium Synchronization Libraries (The Waiting Logic)
+
+    Class: WebDriverWait
+        Definition: A smart waiting tool. Instead of pausing blindly for a fixed time,
+                    it waits intelligently up to a maximum time limit, moving forward the exact
+                    millisecond the required item appears.
+
+        Usage: Used extensively to pause the script until specific text boxes or buttons are
+                fully loaded and ready to be interacted with, preventing crashes caused by slow internet.
+
+    Module: expected_conditions (imported as EC)
+        Definition: A set of predefined rules that WebDriverWait uses to know exactly what to wait for.
+
+        Usage: Used specifically as EC.visibility_of_element_located to strictly verify that a web
+                element is not just hidden in the background code, but actually physically visible
+                on the screen before trying to click or type into it.
+
+    Class: By
+        Definition: A set of locator strategies (like a map compass) used to find elements on a webpage.
+
+        Usage: Used exclusively in this script to target elements by their exact HTML ID attribute.
+
+4. The Custom Architecture (WebAutomation Class)
+
+    Method: __init__
+        Definition: The initial setup phase that runs automatically the moment the robot is created in memory.
+
+        Usage: Prepares the browser settings, establishes the specific download path, starts the
+                driver service, and launches the blank browser window.
+
+    Method: login
+        Definition: A custom action sequence specifically for authentication.
+
+        Usage: Forces the browser to the login page, waits for the username and password boxes
+                to appear, types the credentials, and executes a click on the login button.
+
+    Method: fill_form
+        Definition: A custom action sequence for data entry.
+
+        Usage: Bypasses fragile UI menus by navigating directly to the /text-box URL, waits for
+                the form to load, fills in the required text fields, and executes a click on the submit button.
+
+    Method: download
+        Definition: A custom action sequence designed to trigger a file download.
+
+        Usage: Attempts to find a sidebar menu item (item-7), clicks it, waits for the
+                actual download button to appear on the new page, and clicks it to pull
+                a file into the local folder.
+
+    Method: close
+        Definition: The final shutdown sequence.
+
+        Usage: Uses self.driver.quit() to completely destroy the browser window, sever
+        the connection, and clear it from the computer's memory.
